@@ -14,6 +14,7 @@ const Header = () => {
           Pre-Semi <Dot />
         </Brand>
         <Nav>
+          <NavLink onClick={() => navi("/boards")}>게시판</NavLink>
           {isLogin ? (
             <>
               <Hint>{user.memberName}님</Hint>
