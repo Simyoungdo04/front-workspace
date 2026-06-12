@@ -1,4 +1,5 @@
 import { useState, createContext, useContext } from "react";
+import axios from "axios";
 
 const AuthContext = createContext(null);
 
@@ -28,6 +29,9 @@ export function AuthPrpvider({ children }) {
   };
 
   const logout = () => {
+    axios.get(
+      `http://localhost/api/auth/logout?id=${localStorage.get("memberId")}`,
+    );
     ["token", "refreshToken", "memberId", "memberName", "role"].forEach((k) =>
       localStorage.removeItem(k),
     );
